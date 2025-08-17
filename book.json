@@ -1,0 +1,8 @@
+{
+  "title": "Новая книга",
+  "description": "Описание книги",
+  "authors": "Автор книги",
+  "favorite": "Да",
+  "fileCover": "cover.jpg",
+  "fileName": "book.pdf"
+}
