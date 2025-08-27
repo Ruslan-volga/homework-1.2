@@ -1,0 +1,31 @@
+<%- include('partials/header', {title: book.title}) %>
+
+    <div class="book-details">
+        <h2>
+            <%= book.title %>
+        </h2>
+        <div class="detail-item">
+            <strong>Автор:</strong>
+            <%= book.author %>
+        </div>
+        <div class="detail-item">
+            <strong>Год издания:</strong>
+            <%= book.year %>
+        </div>
+        <div class="detail-item">
+            <strong>Описание:</strong>
+            <p>
+                <%= book.description %>
+            </p>
+        </div>
+
+        <div class="actions">
+            <a href="/update/<%= book.id %>" class="btn edit">Редактировать</a>
+            <a href="/" class="btn back">Назад к списку</a>
+            <form action="/delete/<%= book.id %>" method="POST" style="display:inline;">
+                <button type="submit" class="btn delete" onclick="return confirm('Удалить книгу?')">Удалить</button>
+            </form>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>

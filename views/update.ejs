@@ -1,0 +1,34 @@
+<%- include('partials/header', {title: 'Редактировать книгу: ' + book.title}) %>
+
+    <div class="form-container">
+        <h2>Редактировать книгу</h2>
+
+        <form action="/update/<%= book.id %>" method="POST" class="book-form">
+            <div class="form-group">
+                <label for="title">Название:</label>
+                <input type="text" id="title" name="title" value="<%= book.title %>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="author">Автор:</label>
+                <input type="text" id="author" name="author" value="<%= book.author %>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="year">Год издания:</label>
+                <input type="number" id="year" name="year" value="<%= book.year %>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Описание:</label>
+                <textarea id="description" name="description" rows="4" required><%= book.description %></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn submit">Сохранить изменения</button>
+                <a href="/book/<%= book.id %>" class="btn cancel">Отмена</a>
+            </div>
+        </form>
+    </div>
+
+    <%- include('partials/footer') %>
