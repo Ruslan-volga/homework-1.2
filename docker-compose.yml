@@ -1,0 +1,13 @@
+services:
+  mongodb:
+    image: mongo:4.4  # Версия 4.4 не требует AVX
+    container_name: mongodb
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: booksdb
+
+volumes:
+  mongodb_data:
