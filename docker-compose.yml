@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:4.4.25  # Самая стабильная и совместимая версия
+    container_name: mongodb_auth
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: auth-demo
+
+volumes:
+  mongodb_data:
