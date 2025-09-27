@@ -1,0 +1,1749 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: opacity 0.3s;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+/* Book Info */
+.book-info {
+    display: flex;
+    gap: 2rem;
+    background: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.book-cover {
+    flex-shrink: 0;
+}
+
+.cover-placeholder {
+    width: 150px;
+    height: 200px;
+    background: #ecf0f1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+.book-details {
+    flex: 1;
+}
+
+.book-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.book-author {
+    font-size: 1.3rem;
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+}
+
+.book-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.book-meta span {
+    background: #ecf0f1;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.book-description {
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Chat Container */
+.chat-container {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.chat-header {
+    background: #34495e;
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h2 {
+    margin: 0;
+}
+
+.online-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: #2ecc71;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* User Setup */
+.user-setup {
+    padding: 2rem;
+    background: #f8f9fa;
+}
+
+.setup-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#usernameInput {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+#joinButton {
+    padding: 0.8rem 1.5rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+#joinButton:hover {
+    background: #2980b9;
+}
+
+/* Chat Content */
+.chat-content {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+.messages-container {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    background: #fafafa;
+}
+
+.message {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 70%;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message.own {
+    background: #e3f2fd;
+    margin-left: auto;
+    border-bottom-right-radius: 2px;
+}
+
+.message.other {
+    background: white;
+    border: 1px solid #eee;
+    border-bottom-left-radius: 2px;
+}
+
+.message.system {
+    background: #fff3cd;
+    margin: 0 auto;
+    max-width: 90%;
+    text-align: center;
+    font-style: italic;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.message-sender {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.message-time {
+    color: #7f8c8d;
+    font-size: 0.8rem;
+}
+
+.message-content {
+    word-wrap: break-word;
+    line-height: 1.4;
+}
+
+.message-input-container {
+    padding: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.input-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#messageInput {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+#sendButton {
+    padding: 0.8rem 1.5rem;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+#sendButton:hover {
+    background: #219a52;
+}
+
+.input-hint {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .book-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .book-meta {
+        justify-content: center;
+    }
+
+    .message {
+        max-width: 85%;
+    }
+
+    .setup-form {
+        flex-direction: column;
+    }
+}
+
+/* Добавляем стили для комнат */
+.rooms-panel {
+    width: 250px;
+    background: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    padding: 1rem;
+}
+
+.rooms-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.rooms-header h3 {
+    margin: 0;
+    color: #495057;
+}
+
+#refreshRooms {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.3rem;
+}
+
+.room-item {
+    padding: 0.7rem;
+    margin-bottom: 0.5rem;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.room-item:hover {
+    border-color: #3498db;
+}
+
+.room-item.active {
+    border-color: #2ecc71;
+    background: #e8f5e9;
+}
+
+.room-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.room-name {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.room-users {
+    color: #7f8c8d;
+    font-size: 0.8rem;
+}
+
+.room-actions {
+    margin-top: 1rem;
+}
+
+#newRoomInput {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#createRoomBtn {
+    width: 100%;
+    padding: 0.5rem;
+    background: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chat-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-content {
+    display: flex;
+    height: 600px;
+}
+
+.chat-info {
+    padding: 1rem;
+    background: #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.message-type-selector {
+    padding: 1rem;
+    background: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.message-type-selector label {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    cursor: pointer;
+}
+
+#roomSelector {
+    padding: 0.3rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Стили для разных типов сообщений */
+.message.global {
+    border-left: 4px solid #3498db;
+}
+
+.message.self {
+    border-left: 4px solid #9b59b6;
+    background: #f3e5f5 !important;
+}
+
+.message.room {
+    border-left: 4px solid #2ecc71;
+}
+
+.message.system {
+    border-left: 4px solid #f39c12;
+}
+
+.message-delivery {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    text-align: right;
+    margin-top: 0.3rem;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .chat-content {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .rooms-panel {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #dee2e6;
+    }
+}
+
+/* Добавляем в конец файла */
+
+/* Стили для отображения сообщений */
+.messages-container {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.message {
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    max-width: 80%;
+    animation: fadeIn 0.3s ease-in;
+    word-wrap: break-word;
+}
+
+.message.own {
+    align-self: flex-end;
+    background: #e3f2fd;
+    border-bottom-right-radius: 2px;
+}
+
+.message:not(.own) {
+    align-self: flex-start;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-bottom-left-radius: 2px;
+}
+
+.message.global {
+    border-left: 4px solid #3498db;
+}
+
+.message.self {
+    border-left: 4px solid #9b59b6;
+    background: #f3e5f5 !important;
+}
+
+.message.room {
+    border-left: 4px solid #2ecc71;
+}
+
+.message.system {
+    border-left: 4px solid #f39c12;
+    background: #fff3cd !important;
+    max-width: 90%;
+    text-align: center;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.3rem;
+    font-size: 0.8rem;
+}
+
+.message-sender {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.message-time {
+    color: #7f8c8d;
+    font-size: 0.7rem;
+}
+
+.message-content {
+    line-height: 1.4;
+    color: #333;
+}
+
+.message-recipient {
+    font-size: 0.7rem;
+    color: #7f8c8d;
+    margin-top: 0.3rem;
+    font-style: italic;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Убедимся, что контейнер сообщений прокручивается */
+.messages-container {
+    height: 400px;
+    overflow-y: auto;
+}
+
+/* Стили для скроллбара */
+.messages-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.messages-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Добавляем эти стили в конец файла */
+
+/* Стили для поля ввода сообщения */
+.message-input-container {
+    padding: 1rem;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+}
+
+.input-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+#messageInput {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#messageInput:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+#messageInput:disabled {
+    background-color: #f5f5f5;
+    border-color: #ddd;
+    color: #999;
+    cursor: not-allowed;
+}
+
+#sendButton {
+    padding: 0.8rem 1.5rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+    min-width: 100px;
+}
+
+#sendButton:hover:not(:disabled) {
+    background: #2980b9;
+    transform: translateY(-1px);
+}
+
+#sendButton:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+#sendButton:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Стили для выбора типа сообщения */
+.message-type-selector {
+    padding: 0.5rem 1rem;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.message-type-selector label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.message-type-selector label:hover {
+    background: #e9ecef;
+}
+
+.message-type-selector input[type="radio"] {
+    margin: 0;
+}
+
+#roomSelector {
+    padding: 0.3rem 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+}
+
+#roomSelector:disabled {
+    background: #f5f5f5;
+    color: #999;
+}
+
+/* Анимация для новых сообщений */
+@keyframes messageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.message {
+    animation: messageSlideIn 0.3s ease-out;
+}
+
+/* Индикатор подключения */
+.online-indicator .dot.connected {
+    background: #2ecc71;
+    animation: pulse 2s infinite;
+}
+
+.online-indicator .dot.disconnected {
+    background: #e74c3c;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .input-group {
+        flex-direction: column;
+    }
+
+    #sendButton {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    #messageInput {
+        border-radius: 10px;
+    }
+
+    .message-type-selector {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+/* ОСНОВНЫЕ СТИЛИ ДЛЯ КОНТЕЙНЕРА СООБЩЕНИЙ */
+.messages-container {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-height: 0;
+    /* Важно для flex-контейнеров */
+    height: 400px;
+    /* Фиксированная высота для скролла */
+}
+
+/* Сообщения */
+.message {
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    max-width: 80%;
+    animation: messageSlideIn 0.3s ease-out;
+    word-wrap: break-word;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.message.own {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.message:not(.own) {
+    align-self: flex-start;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-bottom-left-radius: 4px;
+}
+
+/* Типы сообщений */
+.message.global {
+    border-left: 4px solid #3498db;
+}
+
+.message.self {
+    border-left: 4px solid #9b59b6;
+    background: #f3e5f5 !important;
+    color: #333 !important;
+}
+
+.message.room {
+    border-left: 4px solid #2ecc71;
+}
+
+.message.system {
+    border-left: 4px solid #f39c12;
+    background: #fff3cd !important;
+    max-width: 90%;
+    text-align: center;
+    color: #333 !important;
+}
+
+/* Заголовок сообщения */
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+}
+
+.message-sender {
+    font-weight: bold;
+}
+
+.message.own .message-sender {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.message-time {
+    opacity: 0.7;
+    font-size: 0.7rem;
+}
+
+.message-content {
+    line-height: 1.4;
+    font-size: 0.95rem;
+}
+
+/* СКРОЛЛБАР */
+.messages-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.messages-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Firefox */
+.messages-container {
+    scrollbar-width: thin;
+    scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+/* ПОЛЕ ВВОДА И КНОПКА */
+.message-input-container {
+    padding: 1rem;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+}
+
+.input-group {
+    display: flex;
+    gap: 0.8rem;
+    align-items: stretch;
+}
+
+#messageInput {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+    font-family: inherit;
+    min-height: 20px;
+}
+
+#messageInput:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+#messageInput:disabled {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+#sendButton {
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    min-width: 120px;
+    white-space: nowrap;
+}
+
+#sendButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+#sendButton:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+#sendButton:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* ВЫБОР ТИПА СООБЩЕНИЯ */
+.message-type-selector {
+    padding: 0.8rem 1rem;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.message-type-selector label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+    user-select: none;
+}
+
+.message-type-selector label:hover {
+    background: #e9ecef;
+}
+
+.message-type-selector input[type="radio"] {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+}
+
+#roomSelector {
+    padding: 0.5rem 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: white;
+    font-size: 0.9rem;
+    min-width: 150px;
+}
+
+#roomSelector:disabled {
+    background: #f8f9fa;
+    color: #6c757d;
+    border-color: #dee2e6;
+}
+
+/* АНИМАЦИИ */
+@keyframes messageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+    .messages-container {
+        height: 300px;
+        padding: 0.8rem;
+    }
+
+    .message {
+        max-width: 90%;
+        padding: 0.6rem 0.8rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #sendButton {
+        width: 100%;
+        border-radius: 12px;
+        padding: 1rem;
+    }
+
+    #messageInput {
+        border-radius: 12px;
+    }
+
+    .message-type-selector {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+}
+
+/* УТИЛИТЫ */
+.hidden {
+    display: none !important;
+}
+
+/* Гарантируем что контейнер чата виден */
+.chat-content {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+}
+
+.chat-content.hidden {
+    display: none;
+}
+
+/* Информация о комнате */
+.chat-info {
+    padding: 0.8rem 1rem;
+    background: #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #495057;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* СТИЛИ ДЛЯ ФОРМЫ ВХОДА */
+.user-setup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    padding: 2rem;
+}
+
+.setup-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.setup-card h2 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.setup-card p {
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+}
+
+.setup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#usernameInput {
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+#usernameInput:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.join-btn {
+    padding: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.join-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* ОСНОВНОЙ ЧАТ */
+.chat-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.chat-header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h2 {
+    margin: 0;
+}
+
+.online-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: #2ecc71;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+/* СТРУКТУРА ЧАТА */
+.chat-main {
+    display: flex;
+    height: 600px;
+}
+
+.chat-sidebar {
+    width: 280px;
+    background: #f8f9fa;
+    border-right: 1px solid #e0e0e0;
+}
+
+.chat-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* СТИЛИ ДЛЯ КОМНАТ */
+.rooms-panel {
+    padding: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.rooms-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.rooms-header h3 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.icon-btn:hover {
+    background: #e9ecef;
+}
+
+.rooms-list {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.room-item {
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.room-item:hover {
+    border-color: #3498db;
+}
+
+.room-item.active {
+    border-color: #2ecc71;
+    background: #e8f5e9;
+}
+
+.room-name {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
+}
+
+.room-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+
+.room-actions {
+    margin-top: auto;
+}
+
+#newRoomInput {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+#createRoomBtn {
+    width: 100%;
+    padding: 0.8rem;
+    background: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#createRoomBtn:hover {
+    background: #7f8c8d;
+}
+
+/* ОСТАЛЬНЫЕ СТИЛИ ОСТАЮТСЯ ТАКИМИ ЖЕ КАК В ПРЕДЫДУЩЕЙ ВЕРСИИ */
+.chat-info {
+    padding: 1rem;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.messages-container {
+    height: 400px;
+    overflow-y: auto;
+    background: #fafafa;
+    padding: 10px;
+}
+
+.message {
+    padding: 10px;
+    margin: 5px 0;
+    background: white;
+    border-radius: 5px;
+    border-left: 4px solid #3498db;
+}
+
+.message.own {
+    background: #e3f2fd;
+    margin-left: 20%;
+}
+
+.message:not(.own) {
+    align-self: flex-start;
+    background: white;
+    border: 1px solid #e0e0e0;
+}
+
+.message-controls {
+    border-top: 1px solid #e0e0e0;
+}
+
+.message-type-selector {
+    padding: 1rem;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.message-type-selector label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.message-input-container {
+    padding: 1rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 0.8rem;
+}
+
+#messageInput {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 1rem;
+}
+
+.send-btn {
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Добавьте остальные стили из предыдущей версии */
+
+/* ДОБАВЛЯЕМ В КОНЕЦ ФАЙЛА */
+
+/* СТИЛИ ДЛЯ СПИСКА КОМНАТ СО СКРОЛЛОМ */
+.rooms-list {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    max-height: 300px;
+    /* Ограничиваем высоту для скролла */
+}
+
+/* Стили для скроллбара в списке комнат */
+.rooms-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.rooms-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.rooms-list::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.rooms-list::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Стили для комнат */
+.room-item {
+    padding: 12px;
+    margin-bottom: 8px;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.room-item:hover {
+    border-color: #3498db;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.room-item.active {
+    border-color: #2ecc71;
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+}
+
+.room-name {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.room-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+
+.user-count {
+    color: #7f8c8d;
+    background: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+.lock-icon {
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+/* Кнопка создания комнаты */
+#createRoomBtn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#createRoomBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+#newRoomInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+#newRoomInput:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Улучшаем внешний вид сайдбара */
+.chat-sidebar {
+    width: 280px;
+    background: #f8f9fa;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+}
+
+.rooms-panel {
+    padding: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rooms-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.rooms-header h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .rooms-list {
+        max-height: 200px;
+    }
+
+    .chat-sidebar {
+        width: 100%;
+        height: 250px;
+    }
+
+    .chat-main {
+        flex-direction: column;
+    }
+}
+
+/* ДОБАВЬТЕ В КОНЕЦ CSS ФАЙЛА */
+
+.room-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.room-name {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.room-badge {
+    background: #3498db;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.room-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+}
+
+.general-badge {
+    background: #2ecc71;
+    color: white;
+    padding: 1px 4px;
+    border-radius: 4px;
+}
+
+.online-dot,
+.offline-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.online-dot {
+    background: #2ecc71;
+}
+
+.offline-dot {
+    background: #95a5a6;
+}
+
+.active-room {
+    border-left: 4px solid #2ecc71;
+}
+
+.inactive-room {
+    opacity: 0.7;
+}
+
+.message-room {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+
+/* ДОБАВЬТЕ В КОНЕЦ CSS ФАЙЛА */
+
+/* Стили для списка комнат */
+.room-item {
+    padding: 12px;
+    margin-bottom: 8px;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.room-item:hover {
+    border-color: #3498db;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.room-item.active {
+    border-color: #2ecc71;
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+}
+
+.room-main-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.room-name {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+.room-user-count {
+    background: #3498db;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.room-meta {
+    display: flex;
+    gap: 6px;
+}
+
+.general-tag,
+.current-tag {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.general-tag {
+    background: #2ecc71;
+    color: white;
+}
+
+.current-tag {
+    background: #3498db;
+    color: white;
+}
+
+/* Индикатор комнаты для сообщений */
+.message-room-indicator {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 4px;
+    padding: 2px 6px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    display: inline-block;
+    font-style: italic;
+}
+
+/* Стили для разных типов сообщений */
+.message.room {
+    border-left: 4px solid #2ecc71;
+}
+
+.message.global {
+    border-left: 4px solid #3498db;
+}
+
+.message.self {
+    border-left: 4px solid #9b59b6;
+}
+
+.message.system {
+    border-left: 4px solid #f39c12;
+}
+
+/* Скролл для списка комнат */
+.rooms-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.rooms-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.rooms-list::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}

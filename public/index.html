@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обсуждение книги | Библиотека</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">📚 Библиотека</div>
+            <nav>
+                <a href="#" class="nav-link">Главная</a>
+                <a href="#" class="nav-link">Каталог</a>
+                <a href="#" class="nav-link">О проекте</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="book-info">
+            <div class="book-cover">
+                <div class="cover-placeholder">📖</div>
+            </div>
+            <div class="book-details">
+                <h1 class="book-title">Преступление и наказание</h1>
+                <div class="book-author">Фёдор Достоевский</div>
+                <div class="book-meta">
+                    <span class="book-year">1866 г.</span>
+                    <span class="book-genre">Роман</span>
+                    <span class="book-pages">608 стр.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ФОРМА ВХОДА -->
+        <div class="user-setup" id="userSetup">
+            <div class="setup-card">
+                <h2>Присоединиться к обсуждению</h2>
+                <p>Введите ваше имя, чтобы начать общаться</p>
+                <div class="setup-form">
+                    <input type="text" id="usernameInput" placeholder="Ваше имя" value="Читатель">
+                    <button id="joinButton" class="join-btn">Присоединиться к чату</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ОСНОВНОЙ ЧАТ (изначально скрыт) -->
+        <div class="chat-container hidden" id="chatContent">
+            <div class="chat-header">
+                <h2>💬 Обсуждение книги</h2>
+                <div class="online-indicator">
+                    <span class="dot"></span>
+                    <span id="userCount">0 участников</span>
+                </div>
+            </div>
+
+            <div class="chat-main">
+                <div class="chat-sidebar">
+                    <div class="rooms-panel">
+                        <div class="rooms-header">
+                            <h3>Комнаты</h3>
+                            <button id="refreshRooms" class="icon-btn">🔄</button>
+                        </div>
+                        <div class="rooms-list" id="roomsList">
+                            <!-- Комнаты будут здесь -->
+                        </div>
+                        <div class="room-actions">
+                            <input type="text" id="newRoomInput" placeholder="Название комнаты">
+                            <button id="createRoomBtn">Создать комнату</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-content">
+                    <div class="chat-info">
+                        <span id="currentRoom">Общий чат</span>
+                        <span id="roomUsers">Участников: 0</span>
+                    </div>
+
+                    <div class="messages-container" id="messagesContainer">
+                        <!-- Сообщения будут здесь -->
+                    </div>
+
+                    <div class="message-controls">
+                        <div class="message-type-selector">
+                            <label>
+                                <input type="radio" name="messageType" value="all" checked>
+                                <span>Всем</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="messageType" value="self">
+                                <span>Себе</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="messageType" value="room">
+                                <span>В комнату</span>
+                            </label>
+                            <select id="roomSelector" disabled>
+                                <option value="general">Общий чат</option>
+                            </select>
+                        </div>
+
+                        <div class="message-input-container">
+                            <div class="input-group">
+                                <input type="text" id="messageInput" placeholder="Введите ваше сообщение..." disabled>
+                                <button id="sendButton" class="send-btn" disabled>Отправить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/client.js"></script>
+</body>
+
+</html>
